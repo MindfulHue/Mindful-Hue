@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help — Mindful Hue</title>
+<meta name="description" content="Get help with Mindful Hue — membership, podcast, community, billing, and more.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%233A2A1E'/><g transform='translate(50,50)'><ellipse cx='0' cy='-18' rx='6' ry='14' fill='none' stroke='%237A9E7E' stroke-width='2' transform='rotate(0)'/><ellipse cx='0' cy='-18' rx='6' ry='14' fill='none' stroke='%237A9E7E' stroke-width='2' transform='rotate(72)'/><ellipse cx='0' cy='-18' rx='6' ry='14' fill='none' stroke='%237A9E7E' stroke-width='2' transform='rotate(144)'/><ellipse cx='0' cy='-18' rx='6' ry='14' fill='none' stroke='%237A9E7E' stroke-width='2' transform='rotate(216)'/><ellipse cx='0' cy='-18' rx='6' ry='14' fill='none' stroke='%237A9E7E' stroke-width='2' transform='rotate(288)'/><circle cx='0' cy='0' r='8' fill='%23E8A55A'/><circle cx='0' cy='0' r='3' fill='%23F5EFE6'/></g></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5EFE6;--warm-white:#FAF7F2;--bark:#3A2A1E;--bark-mid:#5C4535;--amber:#C17F3E;--amber-glow:#E8A55A;--sage:#7A9E7E;--sage-deep:#4D7A52;--mocha:#7A5C48}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--bark);line-height:1.8}
+nav{background:var(--bark);padding:1.4rem 7vw;display:flex;justify-content:space-between;align-items:center}
+nav svg{height:32px;width:auto}
+.nav-back{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-glow);text-decoration:none;font-weight:500;transition:color .3s}
+.nav-back:hover{color:var(--cream)}
+.page-hero{background:var(--bark);padding:5rem 7vw 4rem;border-bottom:1px solid rgba(245,239,230,.08)}
+.page-label{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber-glow);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.page-label::before{content:'';display:block;width:28px;height:1px;background:var(--amber-glow)}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:700;color:var(--cream);margin-bottom:.8rem}
+.page-sub{font-size:1rem;color:rgba(245,239,230,.55);font-weight:300;max-width:500px;line-height:1.8}
+.container{max-width:820px;margin:0 auto;padding:5rem 7vw}
+
+/* Contact card */
+.contact-hero{background:var(--bark);padding:3rem;margin-bottom:5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.contact-hero-left h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--cream);margin-bottom:.8rem}
+.contact-hero-left h2 em{font-style:italic;color:var(--amber-glow);font-weight:400}
+.contact-hero-left p{font-size:.95rem;line-height:1.85;font-weight:300;color:rgba(245,239,230,.6)}
+.contact-hero-right{background:rgba(245,239,230,.04);border:1px solid rgba(245,239,230,.08);padding:2rem;text-align:center}
+.contact-email-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:.8rem}
+.contact-email{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--amber-glow);text-decoration:none;display:block;margin-bottom:1.2rem;transition:color .3s}
+.contact-email:hover{color:var(--cream)}
+.contact-response{font-size:.75rem;color:rgba(245,239,230,.4);letter-spacing:.06em}
+
+/* FAQ */
+.faq-section{margin-bottom:4rem}
+.faq-section-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--bark);margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid var(--amber);display:flex;align-items:center;gap:1rem}
+.faq-section-icon{width:36px;height:36px;background:var(--bark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.faq-item{margin-bottom:0;border-bottom:1px solid rgba(58,42,30,.08)}
+.faq-question{width:100%;text-align:left;background:none;border:none;padding:1.4rem 0;font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;color:var(--bark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .3s}
+.faq-question:hover{color:var(--amber)}
+.faq-arrow{font-size:1.2rem;color:var(--amber);transition:transform .3s;flex-shrink:0}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer.open{max-height:500px}
+.faq-answer-inner{padding:.2rem 0 1.4rem;font-size:.97rem;line-height:1.9;font-weight:300;color:var(--mocha)}
+.faq-answer-inner a{color:var(--amber);text-decoration:none}
+.faq-answer-inner a:hover{text-decoration:underline}
+.faq-arrow.open{transform:rotate(45deg)}
+
+/* Crisis */
+.crisis-box{background:linear-gradient(135deg,var(--sage-deep),var(--bark));padding:3rem;margin-top:5rem;text-align:center}
+.crisis-box h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-bottom:.8rem}
+.crisis-box p{font-size:.95rem;line-height:1.8;font-weight:300;color:rgba(245,239,230,.7);max-width:480px;margin:0 auto 1.5rem}
+.crisis-number{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--amber-glow);display:block;margin-bottom:.3rem}
+.crisis-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,239,230,.5);font-weight:500}
+
+footer{background:var(--bark);padding:2rem 7vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(245,239,230,.05);margin-top:5rem}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
+.footer-links a{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,239,230,.3);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--amber-glow)}
+.footer-copy{font-size:.6rem;color:rgba(245,239,230,.18);letter-spacing:.06em}
+@media(max-width:768px){.container{padding:3rem 5vw}.contact-hero{grid-template-columns:1fr}.footer-links{flex-wrap:wrap;gap:1rem}footer{flex-direction:column;gap:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160">
+    <defs><linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8A55A"/><stop offset="100%" style="stop-color:#C17F3E"/></linearGradient></defs>
+    <g transform="translate(72,80)">
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="9" fill="url(#ag)"/>
+      <circle cx="0" cy="0" r="3.5" fill="#F5EFE6"/>
+    </g>
+    <text x="144" y="66" font-family="Georgia,serif" font-size="33" font-weight="400" letter-spacing="9" fill="#F5EFE6">MINDFUL</text>
+    <rect x="144" y="77" width="330" height="1.5" fill="url(#ag)"/>
+    <text x="147" y="112" font-family="Georgia,serif" font-size="33" font-style="italic" font-weight="400" letter-spacing="20" fill="url(#ag)">hue</text>
+  </svg>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-hero">
+  <p class="page-label">Help Center</p>
+  <h1 class="page-title">How can we help?</h1>
+  <p class="page-sub">Find answers below or reach out directly — we're real people and we actually read every message.</p>
+</div>
+
+<div class="container">
+
+  <!-- Contact -->
+  <div class="contact-hero">
+    <div class="contact-hero-left">
+      <h2>Still need help?<br><em>Just reach out.</em></h2>
+      <p>We respond to every message within 2 business days. No bots. No automated responses. A real human who cares about your experience.</p>
+    </div>
+    <div class="contact-hero-right">
+      <p class="contact-email-label">Email us directly</p>
+      <a href="mailto:care@mindfulhue.com" class="contact-email">care@mindfulhue.com</a>
+      <p class="contact-response">Response within 2 business days</p>
+    </div>
+  </div>
+
+  <!-- FAQ — General -->
+  <div class="faq-section">
+    <h2 class="faq-section-title"><span class="faq-section-icon">🌿</span> General Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        What is Mindful Hue?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Mindful Hue is a wellness education platform and community for late-identified and self-identified neurodivergent Black women. We offer a podcast, The Hue Collective membership community, and digital wellness resources — all built around the experiences of Black women navigating ADHD, late diagnoses, masking, and the exhaustion of living in systems not built for us.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Is Mindful Hue therapy?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">No. Mindful Hue is a wellness education platform — not a therapy practice. Our content is for educational and informational purposes only and does not constitute therapy, diagnosis, or clinical treatment. Engaging with Mindful Hue does not create a therapeutic relationship. If you need clinical support please reach out to a licensed mental health professional in your area.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Who is Myra?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Myra is the founder and host of Mindful Hue. She is a Licensed Clinical Social Worker (LCSW) and a late-identified neurodivergent Black woman who built this platform because the space she needed didn't exist. She brings both clinical expertise and lived experience to everything Mindful Hue creates.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Is Mindful Hue only for Black women?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Mindful Hue was built specifically for Black women navigating neurodivergence and mental wellness. Our content, community, and voice center the experiences of Black women. While our podcast is publicly available and anyone is welcome to listen, The Hue Collective membership community is designed as a space specifically for Black women.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ — Membership -->
+  <div class="faq-section">
+    <h2 class="faq-section-title"><span class="faq-section-icon">✦</span> The Hue Collective Membership</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        What is The Hue Collective?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The Hue Collective is our private membership community — a curated, intimate space for late-diagnosed and self-identified neurodivergent Black women. Members get monthly group sessions with Myra, bonus podcast episodes, a clinical tools and resource library, access to the private community, monthly wellness resource drops, and a monthly Q&A.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How much does membership cost?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The Hue Collective membership is $37 per month for founding members. This founding rate is locked in for as long as your membership remains active and uninterrupted — meaning you'll never pay more than $37/month even as the price increases for new members.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Can I cancel my membership?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes — you can cancel anytime with no penalty. Your membership will remain active until the end of your current billing period. To cancel email us at <a href="mailto:care@mindfulhue.com">care@mindfulhue.com</a> and we will take care of it within 1 business day.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Is there a refund policy?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">We offer a 7-day satisfaction guarantee for new members. If you join and are not satisfied within your first 7 days, contact us at <a href="mailto:care@mindfulhue.com">care@mindfulhue.com</a> for a full refund. After 7 days all charges are final.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        When does The Hue Collective launch?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The Hue Collective is launching soon. Join the waitlist on our homepage to be the first to know and to secure founding member pricing. Founding members who join at launch lock in the $37/month rate forever.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ — Podcast -->
+  <div class="faq-section">
+    <h2 class="faq-section-title"><span class="faq-section-icon">🎙️</span> The Podcast</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        When does the podcast launch?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The Mindful Hue Podcast is coming soon. Join our waitlist at the bottom of the homepage to be notified the moment it drops. We'll also be sharing bonus episodes with Hue Collective members before the public launch.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Where will the podcast be available?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The Mindful Hue Podcast will be available on Spotify, Apple Podcasts, and all major podcast platforms. Bonus and early-access episodes will be available exclusively to Hue Collective members.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        What topics will the podcast cover?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">The podcast will cover late ADHD and autism diagnoses in Black women, the experience of masking, emotional dysregulation, nervous system healing, relationships and neurodivergence, navigating systems not built for us, and real clinical tools translated into everyday language. No sugarcoating. No performing wellness. Just honest conversation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ — Technical -->
+  <div class="faq-section">
+    <h2 class="faq-section-title"><span class="faq-section-icon">⚙️</span> Account & Technical</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I update my email address?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Email us at <a href="mailto:care@mindfulhue.com">care@mindfulhue.com</a> with your current email address and the new one you'd like to use. We'll update it within 1 business day.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I unsubscribe from emails?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Every email we send includes an unsubscribe link at the bottom. Click it and you'll be removed immediately. You can also email <a href="mailto:care@mindfulhue.com">care@mindfulhue.com</a> and we'll handle it manually.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        I have a billing question — who do I contact?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Email us directly at <a href="mailto:care@mindfulhue.com">care@mindfulhue.com</a> with your billing question. Please include the email address associated with your account and a description of the issue. We respond within 2 business days.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Crisis box -->
+  <div class="crisis-box">
+    <h3>If you're in crisis right now</h3>
+    <p>Mindful Hue is a wellness education platform — not a crisis service. If you are in distress or danger please reach out to a professional immediately.</p>
+    <span class="crisis-number">988</span>
+    <p class="crisis-label">Suicide & Crisis Lifeline — call or text anytime</p>
+  </div>
+
+</div>
+
+<footer>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160" height="28">
+    <defs><linearGradient id="agf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8A55A"/><stop offset="100%" style="stop-color:#C17F3E"/></linearGradient></defs>
+    <g transform="translate(72,80)">
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-26" rx="8" ry="18" fill="none" stroke="#7A9E7E" stroke-width="1.8" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="9" fill="url(#agf)"/>
+      <circle cx="0" cy="0" r="3.5" fill="#F5EFE6"/>
+    </g>
+    <text x="144" y="66" font-family="Georgia,serif" font-size="33" font-weight="400" letter-spacing="9" fill="#F5EFE6">MINDFUL</text>
+    <rect x="144" y="77" width="330" height="1.5" fill="url(#agf)"/>
+    <text x="147" y="112" font-family="Georgia,serif" font-size="33" font-style="italic" font-weight="400" letter-spacing="20" fill="url(#agf)">hue</text>
+  </svg>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="help.html">Help</a>
+    <a href="mailto:care@mindfulhue.com">care@mindfulhue.com</a>
+  </div>
+  <p class="footer-copy">© 2026 Mindful Hue. All rights reserved.</p>
+</footer>
+
+<script>
+function toggle(btn){
+  const answer=btn.nextElementSibling;
+  const arrow=btn.querySelector('.faq-arrow');
+  const isOpen=answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer.open').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.faq-arrow.open').forEach(a=>a.classList.remove('open'));
+  if(!isOpen){answer.classList.add('open');arrow.classList.add('open');}
+}
+</script>
+
+</body>
+</html>
