@@ -456,7 +456,7 @@ footer svg{height:30px;width:auto}
     <div style="max-width:480px;margin:0 auto;border-radius:12px;overflow:hidden;background:#F5EFE6;box-shadow:0 4px 30px rgba(58,42,30,.08);border:1px solid rgba(58,42,30,.12)">
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/7ynjZigatL0t8k2iM1wq"
-        style="width:100%;height:516px;border:none;border-radius:12px"
+        style="width:100%;height:450px;border:none;border-radius:8px"
         id="inline-7ynjZigatL0t8k2iM1wq"
         data-layout='{"id":"INLINE"}'
         data-trigger-type="alwaysShow"
@@ -466,7 +466,7 @@ footer svg{height:30px;width:auto}
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
         data-form-name="Mindful Hue Waitlist"
-        data-height="516"
+        data-height="450"
         data-layout-iframe-id="inline-7ynjZigatL0t8k2iM1wq"
         data-form-id="7ynjZigatL0t8k2iM1wq"
         title="Mindful Hue Waitlist">
@@ -559,47 +559,6 @@ window.addEventListener('scroll',()=>{
   document.getElementById('navbar').style.background=
     window.scrollY>60?'rgba(22,14,8,.97)':'';
 });
-</script>
-
-<script>
-async function submitToGHL() {
-  const first = document.getElementById('f-first').value.trim();
-  const last = document.getElementById('f-last').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const btn = document.getElementById('ghl-submit-btn');
-  const success = document.getElementById('ghl-success');
-
-  if (!email || !email.includes('@')) {
-    document.getElementById('f-email').style.borderColor = '#C17F3E';
-    document.getElementById('f-email').focus();
-    return;
-  }
-
-  btn.textContent = 'Submitting...';
-  btn.disabled = true;
-
-  try {
-    const response = await fetch('https://services.leadconnectorhq.com/hooks/7ynjZigatL0t8k2iM1wq/webhook-trigger/7ynjZigatL0t8k2iM1wq', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        first_name: first,
-        last_name: last,
-        phone: phone,
-        email: email,
-        formId: '7ynjZigatL0t8k2iM1wq'
-      })
-    });
-  } catch(e) {}
-
-  btn.style.display = 'none';
-  success.style.display = 'block';
-  document.getElementById('f-first').value = '';
-  document.getElementById('f-last').value = '';
-  document.getElementById('f-phone').value = '';
-  document.getElementById('f-email').value = '';
-}
 </script>
 </body>
 </html>
